@@ -1,11 +1,21 @@
 {
   "name": "react-native-espressif-provisionmanager",
   "version": "0.1.0",
-  "description": "This library helps provision ESPRESSIF BLE devices in React-Native, using react-native-ble-plx. ",
+  "description": "React Native implementation of Espressif's BLE implementation of their Provisioning Manager, based on their Java. This library helps provision ESPRESSIF BLE devices in React-Native, using react-native-ble-plx and react-native-random-bytes.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
-  "react-native": "src/index",
+  "react-native": {
+    "lib/commonjs/index": "src/index",
+    "tls": false,
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
+  },
   "source": "src/index",
   "files": [
     "src",
@@ -29,7 +39,8 @@
     "release": "release-it",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
-    "bootstrap": "yarn example && yarn && yarn pods"
+    "bootstrap": "yarn example && yarn && yarn pods",
+    "postinstall": "npx rn-nodeify --install 'tls,buffer,global,process,stream,events,crypto' --hack"
   },
   "keywords": [
     "react-native",
@@ -38,7 +49,7 @@
   ],
   "repository": "https://github.com/nickwelp/react-native-espressif-provisionmanager",
   "author": "nickwelp <nickwelp@gmail.com> (https://github.com/nickwelp)",
-  "license": "MIT",
+  "license": "(MIT OR Apache-2.0)",
   "bugs": {
     "url": "https://github.com/nickwelp/react-native-espressif-provisionmanager/issues"
   },
@@ -143,5 +154,29 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "events": "^3.3.0",
+    "google-protobuf": "^3.20.0-rc.1",
+    "process": "^0.11.10",
+    "react-native-ble-plx": "^2.0.3",
+    "react-native-crypto": "^2.2.0",
+    "react-native-randombytes": "^3.6.1",
+    "readable-stream": "^1.0.33",
+    "rn-nodeify": "^10.3.0",
+    "stream": "^0.0.2",
+    "stream-browserify": "^1.0.0"
+  },
+  "browser": {
+    "lib/commonjs/index": "src/index",
+    "tls": false,
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
   }
 }
