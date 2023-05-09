@@ -79,9 +79,6 @@ That function is a promise wrapper around the rest of the send codebase which is
     });
 ```
 
-When you are building this for iOS, as it stands you have to manually edit a node_modules file.
-`/node_modules/react-native-ble-plx/react-native-ble-plx.podspec` needs `'MultiplatformBleAdapter', '0.1.9' ` rather than `0.1.7`.
-
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## License
