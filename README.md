@@ -11,7 +11,7 @@ https://github.com/google/tink/blob/master/java_src/src/main/java/com/google/cry
 
 The randombytes is cryptographically secure inasmuch as it uses NativeModules via this package https://github.com/mvayngrib/react-native-randombytes imported via react-native-crypto to produce random bytes
 
-Getting this to build depends on getting the shims to load correctly. I'm working on that in particular right now. 
+Getting this to build depends on getting the shims to load correctly. 
 
 ## Installation
 
